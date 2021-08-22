@@ -5,7 +5,7 @@ DevOps for Logic Apps and Functions
 
 1. Implement source control and a CI/CD solution.  The solution should deploy the Program Feedback API when there is a change to the "main" branch and the build is successful.
 
-3. Create a "Blue Green" deployment approach with GitHub actions.
+2. Create a "Blue Green" deployment approach with GitHub actions.
 
 # Reference
 * [DevOps](https://resources.github.com/devops/)
