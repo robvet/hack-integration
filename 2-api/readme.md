@@ -1,5 +1,5 @@
 # Overview
-Creating and deploying the Program Feedback API with GitHub and Actions.
+Creating and deploying the Program Feedback API
 
 Azure Functions lets you connect Azure services and other resources to functions without having to write your own integration code.  These bindings, which represent both input and output, are declared within the function definition. Data from bindings is provided to the function as parameters.  A trigger is a special type of input binding.  Although a function has only one trigger, it can have multiple input and output bindings.
 
@@ -10,10 +10,7 @@ Azure Functions lets you connect Azure services and other resources to functions
 > * [Get User](https://serverlessohapi.azurewebsites.net/api/GetUser?userId=cc20a6fb-a91f-4192-874d-132493685376) (expects a `userId` query parameter)
 
 # Challenges
-
-1. Implement source control and a CI/CD solution.  The solution should deploy the Program Feedback API when there is a change to the "main" branch and the build is successful.
-
-2. Create the Feedback API
+1. Create the Feedback API
 
     Create and deploy three new Functions in the Function App.
 
@@ -110,39 +107,17 @@ Azure Functions lets you connect Azure services and other resources to functions
         ]
         ```
 
-3. (Optional) Create a "Blue Green" deployment approach with GitHub actions.
-
 # Reference
-
-
-https://resources.github.com/devops/
-
-https://martinfowler.com/bliki/BlueGreenDeployment.html
-
-### OLD
-* [What is Continuous Integration?](https://docs.microsoft.com/devops/develop/what-is-continuous-integration)
-
-* [What is Continuous Delivery?](https://docs.microsoft.com/devops/deliver/what-is-continuous-delivery)
-
-* [Continuous deployment for Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment)
-
-* [Azure DevOps Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/?view=azure-devops)
-
-* [Git Actions Azure Functions Action](https://github.com/marketplace/actions/azure-functions-action)
-
-* [Deploy Azure Functions with Jenkins](https://docs.microsoft.com/azure/jenkins/jenkins-azure-functions-deploy)
-
-* [Deploy Azure Functions with Octopus Deploy](https://octopus.com/blog/azure-functions)
 
 * [Supported languages in Azure Functions](https://docs.microsoft.com/azure/azure-functions/supported-languages)
 
 * [Azure Functions triggers and bindings concepts](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings)
 
+* [Azure Functions HTTP and webhook bindings](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook)
+
 * [Introduction to Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction)
 
 * [Azure Cosmos DB bindings for Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-bindings-cosmosdb-v2)
-
-* [Azure Functions HTTP and webhook bindings](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook)
 
 * [Store unstructured data using Azure Functions and Azure Cosmos DB](https://docs.microsoft.com/azure/azure-functions/functions-integrate-store-unstructured-data-cosmosdb)
 

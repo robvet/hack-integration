@@ -40,8 +40,6 @@ Integration with API Management.
     * GetProduct
     * GetProducts
 
-4. (Optional) Developer portal is an automatically generated, fully customizable website with the documentation of your APIs. It is where API consumers can discover your APIs, learn how to use them, request access, and try them out.
-
 # Reference
 
 * [Monitor Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-monitoring)
