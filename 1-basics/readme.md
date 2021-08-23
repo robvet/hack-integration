@@ -1,7 +1,7 @@
 # Overview
 Integration basics with Logic Apps and Functions.
 
-When you build workflows using Azure Logic Apps, you can use connectors to help you quickly and easily access data, events, and resources in other apps, services, systems, protocols, and platforms - often without writing any code.  A connector provides prebuilt operations that you can use as steps in your workflows.  Azure Logic Apps provides hundreds of connectors that you can use.  If no connector is available for the resource that you want to access, you can use the generic HTTP operation to communicate with the service, or you can create a custom connector.
+When you build workflows using Azure Logic Apps, you can use connectors to help you quickly and easily access data, events, and resources in other apps, services, systems, protocols, and platforms - often without writing any code.  A connector provide prebuilt operations that you can use as steps in your workflows.  Azure Logic Apps provide hundreds of connectors that you can use.  If no connector is available for the resource that you want to access, you can use the generic HTTP operation to communicate with the service, or you can create a custom connector.
 
 The Functions and Logic Apps created in this module will be leveraged throughout the hackathon.  Each hacker should deploy to different Resource Groups and use unique Function App and Logic App names.  The Function should be created and tested in your development environment before deploying to Azure.
 
