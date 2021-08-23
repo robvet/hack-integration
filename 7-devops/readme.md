@@ -10,6 +10,11 @@ DevOps for Logic Apps and Functions
 # Reference
 * [DevOps](https://resources.github.com/devops/)
 
+* [CI/CD for API Management using Azure Resource Manager templates](https://docs.microsoft.com/en-us/azure/api-management/devops-api-development-templates)
+
+* [Azure API Management DevOps Resource Kit](https://github.com/Azure/azure-api-management-devops-resource-kit)
+
+
 * [BlueGreen](https://martinfowler.com/bliki/BlueGreenDeployment.html)
 
 * [Functions - Continuous delivery by using GitHub Action](https://docs.microsoft.com/en-us/azure/azure-functions/functions-how-to-github-actions)

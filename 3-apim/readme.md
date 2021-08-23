@@ -53,3 +53,7 @@ Integration with API Management.
 * [Azure API Management Policies](https://docs.microsoft.com/azure/api-management/set-edit-policies)
 
 * [Azure API Management Access Restriction Policies](https://docs.microsoft.com/azure/api-management/api-management-access-restriction-policies)
+
+* [CI/CD for API Management using Azure Resource Manager templates](https://docs.microsoft.com/en-us/azure/api-management/devops-api-development-templates)
+
+* [Azure API Management DevOps Resource Kit](https://github.com/Azure/azure-api-management-devops-resource-kit)
