@@ -10,9 +10,3 @@
         - azure cli
         - azure functions core tools 3
         - .net core sdk
-
-
-
-
-NOTES:
-move devops to end

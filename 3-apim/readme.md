@@ -13,7 +13,7 @@ Integration with API Management.
 
 2. Create a uniform URL with API Management
 
-    Create a uniformly addressed version of the entire API. This includes the `GetUser`, `GetProduct` and `GetProducts` APIs that already existed, and all the production functions your team created: `CreateRating`, `GetRating`, and `GetRatings`. Your team should expose all of these operations under the same base URL, as they currently are under different base URLs.
+    Create a uniformly addressed version of the entire API. This includes the `GetUser`, `GetProgram` and `GetPrograms` APIs that already existed, and all the production functions your team created: `CreateRating`, `GetRating`, and `GetRatings`. Your team should expose all of these operations under the same base URL, as they currently are under different base URLs.
 
 3. Create Product suites
 

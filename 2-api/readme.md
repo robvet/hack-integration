@@ -3,11 +3,12 @@ Creating and deploying the Program Feedback API
 
 Azure Functions lets you connect Azure services and other resources to functions without having to write your own integration code.  These bindings, which represent both input and output, are declared within the function definition. Data from bindings is provided to the function as parameters.  A trigger is a special type of input binding.  Although a function has only one trigger, it can have multiple input and output bindings.
 
-> **NOTE**: You will require information about Users and Products. Three APIs have already been created for getting info about Users and Products:
-> * [Get Products](https://serverlessohapi.azurewebsites.net/api/GetProducts)
-> * [Get Product](https://serverlessohapi.azurewebsites.net/api/GetProduct?productId=75542e38-563f-436f-adeb-f426f1dabb5c) (expects `productId` query parameter)
-> * [Get Users](https://serverlessohapi.azurewebsites.net/api/GetUsers)
-> * [Get User](https://serverlessohapi.azurewebsites.net/api/GetUser?userId=cc20a6fb-a91f-4192-874d-132493685376) (expects a `userId` query parameter)
+> **NOTE**: You will require information about Users and Programs. Three APIs have already been created for getting info about Users and Programs:
+> * [Get Programs]()
+> * [Get Program]() (expects `productId` query parameter)
+> * [Get Users]()
+> * [Get User]() (expects a `userId` query parameter)
+
 
 # Challenges
 1. Create the Feedback API
