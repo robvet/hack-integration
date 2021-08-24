@@ -4,19 +4,13 @@
 
 
 
-    GetProduct: [GET] http://localhost:7071/api/GetProduct?productId=1ffe0a1a-e9b6-439d-ad52-b8e0a384e44f
-    GetProducts: [GET] http://localhost:7071/api/GetProducts
-    GetProgram: [GET] http://localhost:7071/api/GetProgram?programId=1cd8cf30-e821-44cf-b3ac-44cf6b4f2b19
-    GetPrograms: [GET] http://localhost:7071/api/GetPrograms
-    GetUser: [GET] http://localhost:7071/api/GetUser?userId=2c82e013-2166-47ba-b5d6-b427e814802a
-    GetUsers: [GET] http://localhost:7071/api/GetUsers
 
-    GetProduct: [GET] https://mtc-hack-usw2-api-app1.azurewebsites.net/api/GetProduct?productId=1ffe0a1a-e9b6-439d-ad52-b8e0a384e44f
-    GetProducts: [GET] https://mtc-hack-usw2-api-app1.azurewebsites.net/api/GetProducts
-    GetProgram: [GET] https://mtc-hack-usw2-api-app1.azurewebsites.net/api/GetProgram?programId=1cd8cf30-e821-44cf-b3ac-44cf6b4f2b19
-    GetPrograms: [GET] https://mtc-hack-usw2-api-app1.azurewebsites.net/api/GetPrograms
-    GetUser: [GET] https://mtc-hack-usw2-api-app1.azurewebsites.net/api/GetUser?userId=2c82e013-2166-47ba-b5d6-b427e814802a
-    GetUsers: [GET] https://mtc-hack-usw2-api-app1.azurewebsites.net/api/GetUsers
+    GetProduct: [GET] https://hack.azure-api.net/api/GetProduct?productId=1ffe0a1a-e9b6-439d-ad52-b8e0a384e44f
+    GetProducts: [GET] https://hack.azure-api.net/api/GetProducts
+    GetProgram: [GET] https://hack.azure-api.net/api/GetProgram?programId=1cd8cf30-e821-44cf-b3ac-44cf6b4f2b19
+    GetPrograms: [GET] https://hack.azure-api.net/api/GetPrograms
+    GetUser: [GET] https://hack.azure-api.net/api/GetUser?userId=2c82e013-2166-47ba-b5d6-b427e814802a
+    GetUsers: [GET] https://hack.azure-api.net/api/GetUsers
 
 
     Programs
