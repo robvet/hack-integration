@@ -4,7 +4,27 @@
 
 The following configuration options should work for this hack
 
-### Windows 10 with Ubuntu WSL
+## GitHub Account
+
+If you plan to implement CI/CD as part of the integration solutions built during the hack (optional), you should have a GitHub account.  Create a [free account](https://github.com/signup) here
+
+## Azure Subscription
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free) before you begin.  The following subscription types should work:
+
+* Azure Visual Studio Subscription
+* Azure Enterprise Dev/Test Subscription
+* Azure Enterprise Subscription
+* Ability to create the following resources:
+    * Logic Apps
+    * Azure Functions
+    * Log Analytics Workspace
+    * Application Insights
+    * API Management
+    * Service Bus
+    * Event Grid
+
+
+## Windows 10 with Ubuntu WSL
     - Visual Studio (C#)
         - Azure Development Workload
         - .NET cross platform development
@@ -19,7 +39,7 @@ The following configuration options should work for this hack
         - .NET Core SDK 5
         - Nodejs 14.17.5
 
-### macOS
+## macOS
     - Azure CLI
     - Azure Functions Core Tools 3
     - .NET Core SDK
