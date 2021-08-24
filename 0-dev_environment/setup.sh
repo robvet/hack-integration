@@ -30,6 +30,7 @@ sudo apt-get update -y
 sudo apt-get install azure-functions-core-tools-3 -y
 echo 'export FUNCTIONS_CORE_TOOLS_TELEMETRY_OPTOUT=1' >> ~/.bashrc
 cat ~/.bashrc
+. ~/.profile
 
 # dotnet core sdk 5
 # https://docs.microsoft.com/en-us/dotnet/core/install/linux-ubuntu
@@ -42,6 +43,7 @@ sudo apt-get install apt-transport-https -y
 sudo apt-get install -y dotnet-sdk-5.0 -y
 echo 'export DOTNET_CLI_TELEMETRY_OPTOUT=1' >> ~/.bashrc
 cat ~/.bashrc
+. ~/.profile
 
 # nodejs 14.17.5
 # https://github.com/nodejs/help/wiki/Installation
