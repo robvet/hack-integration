@@ -12,7 +12,7 @@ The challenges in the hack are derived from real world scenarios, along with the
 
 2. [Creating the backend API](./2-backend_api/readme.md): This module extends the Function App with additional functions to create a fictitious "Program Feedback API".  The challenges in this module represent a common scenario when customers are integrating existing systems and services into new services.
 
-3. [Managing the API](./3-backend_api/readme.md):  This module introduces a key integration tool, API Management.  The challenges in this module demonstrate important use cases when using APIM.
+3. [Managing the API](./3-api_management/readme.md):  This module introduces a key integration tool, API Management.  The challenges in this module demonstrate important use cases when using APIM.
 
 4. [Enterprise Messaging with Service Bus and Event Grid](./4-messaging/readme.md):  This module adds two components that help make the system more reliable and scalable, Service Bus and Event Grid.  Asynchronous communication using a message broker provides a number of advantages over making direct, synchronous calls to backend services.
 
