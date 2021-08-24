@@ -1,9 +1,7 @@
 # Overview
 Event Hubs with Logic Apps or Functions
 
-Azure Event Hubs is a big data streaming platform and event ingestion service. It can receive and process millions of events per second. Data sent to an event hub can be transformed and stored by using any real-time analytics provider or batching/storage adapters.
-
-The following scenarios are some of the scenarios where you can use Event Hubs:
+Azure Event Hubs is a big data streaming platform and event ingestion service. It can receive and process millions of events per second. Data sent to an event hub can be transformed and stored by using any real-time analytics provider or batching/storage adapters.  The following scenarios are some of the scenarios where you can use Event Hubs:
 
 * Anomaly detection (fraud/outliers)
 * Application logging

@@ -1,10 +1,14 @@
 #/bin/bash
 
-# updates
+# ubuntu updates
+echo "Install Ubuntu updates and upgrades"
+read -p "Press enter to continue"
 sudo apt-get update -y && sudo apt-get upgrade -y
 
 # azure cli
 # https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-linux
+echo "Install the Azure CLI"
+read -p "Press enter to continue"
 sudo apt-get install ca-certificates curl apt-transport-https lsb-release gnupg
 curl -sL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/microsoft.gpg > /dev/null
 AZ_REPO=$(lsb_release -cs)
@@ -16,6 +20,8 @@ sudo apt-get install azure-cli -y
 
 # azure functions core tools 3
 # https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local
+echo "Install Azure Functions Core Tools 3"
+read -p "Press enter to continue"
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
 sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
 sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-$(lsb_release -cs)-prod $(lsb_release -cs) main" > /etc/apt/sources.list.d/dotnetdev.list'
@@ -27,6 +33,8 @@ cat ~/.bashrc
 
 # dotnet core sdk 5
 # https://docs.microsoft.com/en-us/dotnet/core/install/linux-ubuntu
+echo "Install .NET SDK 5"
+read -p "Press enter to continue"
 wget https://packages.microsoft.com/config/ubuntu/21.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
 sudo dpkg -i packages-microsoft-prod.deb
 rm packages-microsoft-prod.deb
@@ -37,6 +45,8 @@ cat ~/.bashrc
 
 # nodejs 14.17.5
 # https://github.com/nodejs/help/wiki/Installation
+echo "Install Nodejs 14.17.5"
+read -p "Press enter to continue"
 wget https://nodejs.org/dist/v14.17.5/node-v14.17.5-linux-x64.tar.xz
 VERSION=v14.17.5
 DISTRO=linux-x64

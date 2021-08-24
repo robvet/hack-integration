@@ -1,6 +1,8 @@
 # Overview
 Integration with API Management.
 
+API Management helps organizations publish APIs to external, partner, and internal developers to unlock the potential of their data and services. Businesses everywhere are looking to extend their operations as a digital platform, creating new channels, finding new customers and driving deeper engagement with existing ones. API Management provides the core competencies to ensure a successful API program through developer engagement, business insights, analytics, security, and protection. You can use Azure API Management to take any backend and launch a full-fledged API program based on it.
+
 # Challenges
 
 1. Enable telemetry for the API using Application Insights.
@@ -22,23 +24,23 @@ Integration with API Management.
     A. **Mobile Applications**: Requires access to all of the APIs. Each of them is required for different areas of the application's UX. So the operations that need to be configured for this product suite are as follows:
 
     * GetUser
-    * GetProduct
-    * GetProducts
+    * GetProgram
+    * GetPrograms
     * CreateRating
     * GetRating
     * GetRatings
 
     B. **Internal business users**: Use the APIs for reporting purposes.  Need access to the product and rating information but shouldn't be using the user operation or be able to create ratings.  So the operations that should be exposed to this product suite are as follows:
 
-    * GetProduct
-    * GetProducts
+    * GetProgram
+    * GetPrograms
     * GetRating
     * GetRatings
 
     C. **External Partners**: The External Partners use case is to be able to see products that BYFOC has to offer, so should only have the product operations exposed to them. So this product suite should only have the following operations exposed to them:
 
-    * GetProduct
-    * GetProducts
+    * GetProgram
+    * GetPrograms
 
 # Reference
 

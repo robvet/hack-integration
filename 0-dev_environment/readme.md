@@ -16,7 +16,6 @@
         - Azure Functions Core Tools 3
         - .NET Core SDK
 
-
 ## Linux Install Reference
 
 ### Ubuntu Updates
