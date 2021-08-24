@@ -1,16 +1,8 @@
 # Overview
 
-~tbd
+Welcome to the Azure Integration Services hackathon
 
-
-
-
-    GetProduct: [GET] https://hack.azure-api.net/api/GetProduct?productId=1ffe0a1a-e9b6-439d-ad52-b8e0a384e44f
-    GetProducts: [GET] https://hack.azure-api.net/api/GetProducts
-    GetProgram: [GET] https://hack.azure-api.net/api/GetProgram?programId=1cd8cf30-e821-44cf-b3ac-44cf6b4f2b19
-    GetPrograms: [GET] https://hack.azure-api.net/api/GetPrograms
-    GetUser: [GET] https://hack.azure-api.net/api/GetUser?userId=2c82e013-2166-47ba-b5d6-b427e814802a
-    GetUsers: [GET] https://hack.azure-api.net/api/GetUsers
+Setting up the development environemnt
 
 
     Programs
