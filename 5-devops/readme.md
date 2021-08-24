@@ -1,11 +1,11 @@
 # Overview
-DevOps for Logic Apps and Azure Functions
+DevOps for Logic Apps, Azure Functions, and API Management
 
 # Challenges
 
 1. Implement source control and a CI/CD solution.
 
-2. The solution should deploy the Program Feedback API when there is a change to the "main" branch and the build is successful.
+2. The solution should deploy the Program Feedback API when there is a change to the "main" branch, and the build is successful.
 
 3. Successful builds should require approval before being pushed to Azure.
 
@@ -17,7 +17,6 @@ DevOps for Logic Apps and Azure Functions
 * [CI/CD for API Management using Azure Resource Manager templates](https://docs.microsoft.com/en-us/azure/api-management/devops-api-development-templates)
 
 * [Azure API Management DevOps Resource Kit](https://github.com/Azure/azure-api-management-devops-resource-kit)
-
 
 * [BlueGreen](https://martinfowler.com/bliki/BlueGreenDeployment.html)
 

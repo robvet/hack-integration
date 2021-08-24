@@ -5,7 +5,7 @@ Azure Functions lets you connect Azure services and other resources to functions
 
 > **NOTE**: You will require information about Users and Programs. Three APIs have already been created for getting info about Users and Programs:
 > * [Get Programs](https://hack.azure-api.net/api/GetPrograms)
-> * [Get Program](https://hack.azure-api.net/api/GetProgram?programId=1cd8cf30-e821-44cf-b3ac-44cf6b4f2b19) (expects `productId` query parameter)
+> * [Get Program](https://hack.azure-api.net/api/GetProgram?programId=1cd8cf30-e821-44cf-b3ac-44cf6b4f2b19) (expects `programId` query parameter)
 > * [Get Users](https://hack.azure-api.net/api/GetUsers)
 > * [Get User](https://hack.azure-api.net/api/GetUser?userId=2c82e013-2166-47ba-b5d6-b427e814802a) (expects a `userId` query parameter)
 
@@ -14,26 +14,27 @@ Azure Functions lets you connect Azure services and other resources to functions
 
     Create and deploy three new Functions in the Function App.
 
-    A. CreateRating Function
+    A. SubmitFeedback Function
 
     * **Verb**: POST
 
     * **Payload**:
         ```JSON
         {
-        "userId": "cc20a6fb-a91f-4192-874d-132493685376",
-        "productId": "4c25613a-a3c2-4ef3-8e02-9c335eb23204",
-        "locationName": "Sample ice cream shop",
+        "userId": "2c82e013-2166-47ba-b5d6-b427e814802a",
+        "programId": "4c25613a-a3c2-4ef3-8e02-9c335eb23204",
+        "followup": "False",
         "rating": 5,
-        "userNotes": "I love the subtle notes of orange in this ice cream!"
+        "userNotes": "Great Program"
         }
         ```
 
     * **Requirements**
-        * Validate both `userId` and `productId` by calling the existing API endpoints. You can find a user id to test with from the sample payload above
+        * Validate both `userId` and `programId` by calling the existing API endpoints. You can find a user id to test with from the sample payload above
         * Add a property called `id` with a GUID value
         * Add a property called `timestamp` with the current UTC date time
         * Validate that the `rating` field is an integer from 0 to 5
+        * Validate the `rating` 
         * Use a data service to store the ratings information to the backend
         * Return the entire review JSON payload with the newly created `id` and `timestamp`
 
@@ -41,20 +42,20 @@ Azure Functions lets you connect Azure services and other resources to functions
         ```JSON
         {
         "id": "79c2779e-dd2e-43e8-803d-ecbebed8972c",
-        "userId": "cc20a6fb-a91f-4192-874d-132493685376",
-        "productId": "4c25613a-a3c2-4ef3-8e02-9c335eb23204",
+        "userId": "2c82e013-2166-47ba-b5d6-b427e814802a",
+        "programId": "4c25613a-a3c2-4ef3-8e02-9c335eb23204",
         "timestamp": "2018-05-21 21:27:47Z",
-        "locationName": "Sample ice cream shop",
+        "followup": "False",
         "rating": 5,
-        "userNotes": "I love the subtle notes of orange in this ice cream!"
+        "userNotes": "Great Program"
         }
         ```
 
-    B. GetRating Function
+    B. GetFeedback Function
 
     * **Verb**: GET
 
-    * **Input**: The `ratingId` as a query string or route parameter
+    * **Input**: The Feedback `feedbackId` as a query string or route parameter
 
     * **Requirements**
         * Get the rating from your database and return the entire JSON payload for the review identified by the id
@@ -64,16 +65,16 @@ Azure Functions lets you connect Azure services and other resources to functions
         ```JSON
         {
         "id": "79c2779e-dd2e-43e8-803d-ecbebed8972c",
-        "userId": "cc20a6fb-a91f-4192-874d-132493685376",
-        "productId": "4c25613a-a3c2-4ef3-8e02-9c335eb23204",
+        "userId": "2c82e013-2166-47ba-b5d6-b427e814802a",
+        "programId": "4c25613a-a3c2-4ef3-8e02-9c335eb23204",
         "timestamp": "2018-05-21 21:27:47Z",
-        "locationName": "Sample ice cream shop",
+        "followup": "True",
         "rating": 5,
-        "userNotes": "I love the subtle notes of orange in this ice cream!"
+        "userNotes": "Bad experiance"
         }
         ```
 
-    C. GetRatings Function
+    C. GetUserFeedback Function
 
     * **Verb**: GET
 
@@ -88,21 +89,21 @@ Azure Functions lets you connect Azure services and other resources to functions
         [
         {
             "id": "79c2779e-dd2e-43e8-803d-ecbebed8972c",
-            "userId": "cc20a6fb-a91f-4192-874d-132493685376",
-            "productId": "4c25613a-a3c2-4ef3-8e02-9c335eb23204",
+            "userId": "2c82e013-2166-47ba-b5d6-b427e814802a",
+            "programId": "4c25613a-a3c2-4ef3-8e02-9c335eb23204",
             "timestamp": "2018-05-21 21:27:47Z",
-            "locationName": "Sample ice cream shop",
+            "followup": "False",
             "rating": 5,
-            "userNotes": "I love the subtle notes of orange in this ice cream!"
+            "userNotes": "Love it"
         },
         {
             "id": "8947f7cc-6f4c-49ed-a7aa-62892eac8f31",
-            "userId": "cc20a6fb-a91f-4192-874d-132493685376",
-            "productId": "e4e7068e-500e-4a00-8be4-630d4594735b",
+            "userId": "2c82e013-2166-47ba-b5d6-b427e814802a",
+            "programId": "e4e7068e-500e-4a00-8be4-630d4594735b",
             "timestamp": "2018-05-20 09:02:30Z",
-            "locationName": "Another Sample Shop",
+            "followup": "True",
             "rating": 4,
-            "userNotes": "I really enjoy this grape ice cream!"
+            "userNotes": "Needs some work"
         }
         ]
         ```
