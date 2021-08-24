@@ -1,5 +1,5 @@
 # Overview
-Batch file processing with Logic Apps
+Batch file processing with Logic Apps and Functions
 
 # Challenges
 

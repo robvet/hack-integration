@@ -1,6 +1,8 @@
 # Overview
 DevOps for Logic Apps, Azure Functions, and API Management
 
+DevOps is about speed: faster application development, faster updates and continuous development, and faster shipments, all of which lead to shortened systems development lifecycles. Recent research shows that high-performing DevOps teams recover from downtime 96 times faster, have a five times lower change failure rate, and deploy code 46 times more frequently. In short, successful DevOps teams can deploy code and recover in a matter of hours, not weeks.
+
 # Challenges
 
 1. Implement source control and a CI/CD solution.
@@ -10,6 +12,8 @@ DevOps for Logic Apps, Azure Functions, and API Management
 3. Successful builds should require approval before being pushed to Azure.
 
 4. Create a "Blue Green" deployment approach with GitHub actions.
+
+5. Build and deploy other branches to dev/test environments.
 
 # Reference
 * [DevOps](https://resources.github.com/devops/)

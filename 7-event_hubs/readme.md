@@ -41,7 +41,6 @@ Azure Event Hubs is a big data streaming platform and event ingestion service. I
             "locationPostcode": "03030",
             "totalCost": "123.40",
             "totalTax": "12.34",
-            "receiptUrl": "https://serverlessohsales.blob.core.windows.net/TheReceipt.pdf"
         },
         "details":
         [
