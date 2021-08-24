@@ -2,37 +2,18 @@
 
 Welcome to the Azure Integration Services hackathon
 
-Setting up the development environemnt
+The challenges in the hack are derived from real world scenarios, along with the [Basic enterprise integration on Azure](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration) and the [Enterprise integration using queues and events](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/enterprise-integration/queues-events) from the Azure Architecture Center.
 
+# Content Modules
 
-    Programs
-    1cd8cf30-e821-44cf-b3ac-44cf6b4f2b19
-    263ff13b-d9de-4f2c-baa2-9972ad1d43ed
-    619e5b8b-d536-4771-8f92-f58fa2d5a3e2
-    1a6f2963-9709-42de-823f-55c507ea1db3
-    d41d02c9-502f-4f0d-a175-97c73ff9dd85
-    5b4efa61-bea5-4475-9977-ed9158c465b0
-    513c3643-6646-4ac1-b8fa-8cd0b08733c7
-    9f180777-f850-42b7-8ef7-0ff38ca90336
-    64f0e01f-e0bc-42c7-9d75-64031c8444cf
-    d9fcabea-7f10-4fb1-81dd-47c5f467a05b
+0. [Setting up the Development Environment](./0-dev_environment/readme.md): This module will cover the basic developer environment setup for Windows, Ubuntu, and macOS.
 
+1. [Integration Basics with Functions and Logic Apps](./1-integration_basics/readme.md): This module provides important integration basics when using Azure Functions and Logic Apps.  The challenges in this module demonstrate common use cases when integrating different services.  Note, depending on the solution the hacker decides to implement, the Function App and Logic Apps created here will be used throughout the hackathon.
 
-    Users
-    2c82e013-2166-47ba-b5d6-b427e814802a
-    87ea88b9-73e7-42c5-83ca-055cf3b4009e
-    04aa65d4-8211-4305-b068-edd3ab06cb45
-    1df2258c-2208-4c38-96f7-fa1d813ad4f4
-    3c11cc5c-cd1d-4233-9cd7-e1b63e394706
+2. [Creating the backend API](./2-backend_api/readme.md): This module extends the Function App with additional functions to create a fictitious "Program Feedback API".  The challenges in this module represent a common scenario when customers are integrating existing systems and services into new services.
 
-    Products
-    1ffe0a1a-e9b6-439d-ad52-b8e0a384e44f
-    c7d02624-e684-48cc-8e63-3a7dddbd467f
-    6b3aaa44-5d56-42ef-ab35-3de86635c822
-    d2fc94f3-2f58-42db-84f5-6eecc9f7e1b8
-    898e71ed-673b-45a0-8f21-7640187506fc
-    0270e6b6-ffbd-4321-b81d-41379b9ea846
-    f406e33d-6295-460c-b251-898c23a19abb
-    f067f9c8-775a-4909-9e2f-4b1ea635654f
-    69930c9a-0706-4d66-91bd-000992daf0fe
-    01fc4510-74b1-48dc-a574-add114e79a27
+3. [Managing the API](./3-backend_api/readme.md):  This module introduces a key integration tool, API Management.  The challenges in this module demonstrate important use cases when using APIM.
+
+4. [Enterprise Messaging with Service Bus and Event Grid](./4-messaging/readme.md):  This module adds two components that help make the system more reliable and scalable, Service Bus and Event Grid.  Asynchronous communication using a message broker provides a number of advantages over making direct, synchronous calls to backend services.
+
+5. [Source control and CI/CD for Azure Integration Solutions](./4-devops/readme.md):  This is an optional module, but one of the most important topics to understand for any organization that wants the potential to deploy services better... faster, more securely, with less downtime, and faster recovery from potential downtime, etc.  Please note, while the challenges in this module focuses on the toolset, DevOps is much more than a set of tools, it's an important cultural change that facilitates an improved way of working together and build services that can benefit the organization.
