@@ -34,7 +34,7 @@ Azure Functions lets you connect Azure services and other resources to functions
         * Add a property called `id` with a GUID value
         * Add a property called `timestamp` with the current UTC date time
         * Validate that the `rating` field is an integer from 0 to 5
-        * Validate the `rating` 
+        * Validate the `followup` is true/false
         * Use a data service to store the ratings information to the backend
         * Return the entire review JSON payload with the newly created `id` and `timestamp`
 

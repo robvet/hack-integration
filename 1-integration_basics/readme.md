@@ -72,3 +72,4 @@ The Functions and Logic Apps created in this module will be leveraged throughout
 * [QuickStart: Create automated integration workflows with multi-tenant Azure Logic Apps and Visual Studio](https://docs.microsoft.com/en-us/azure/logic-apps/quickstart-create-logic-apps-with-visual-studio)
 
 * [Logic Apps Call, trigger, or nest workflows with HTTP endpoints in Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint)
+

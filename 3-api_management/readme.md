@@ -37,7 +37,7 @@ API Management helps organizations publish APIs to external, partner, and intern
     * GetRating
     * GetRatings
 
-    C. **External Partners**: The External Partners use case is to be able to see products that BYFOC has to offer, so should only have the product operations exposed to them. So this product suite should only have the following operations exposed to them:
+    C. **External Partners**: The External Partners use case is to be able to see programs that that are offered, so should only have the product operations exposed to them. So this product suite should only have the following operations exposed to them:
 
     * GetProgram
     * GetPrograms
