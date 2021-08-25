@@ -26,8 +26,6 @@ Azure Event Hubs is a big data streaming platform and event ingestion service. I
 
     * The Event Hub name that you created inside your Event Hubs namespace
 
-
-attribute1
 2. Create an event sender.
 
     **Payload**:
