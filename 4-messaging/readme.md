@@ -7,58 +7,44 @@ Microsoft Azure Service Bus is a fully managed enterprise message broker with me
  * Safely routing and transferring data and control across service and application boundaries
  * Coordinating transactional work that requires a high-degree of reliability
 
+ Azure Event Grid allows you to easily build applications with event-based architectures. First, select the Azure resource you would like to subscribe to, and then give the event handler or WebHook endpoint to send the event to. Event Grid has built-in support for events coming from Azure services, like storage blobs and resource groups. Event Grid also has support for your own events, using custom topics.
+
+ ![Event Sources](https://docs.microsoft.com/en-us/azure/event-grid/media/overview/functional-model-big.png)
+
 # Challenges
 
-1. Your first challenge is to modify the Azure Function to send the specified information to a pub/sub messaging system. Using the feedback data sent, create a new JSON document with a structure similar to the example below that will be sent to your pub/sub messaging system.
+1. Modify the Azure Function to send the specified information to a pub/sub messaging system. Using the feedback data sent, create a new JSON document with a structure like the example below that will be sent to your pub/sub messaging system.
 
-```JSON
-{
-    "totalItems": 8,
-    "totalCost": 123.40,
-    "salesNumber": "0c423398-3c7c-0682-7519-4701c445ed7a",
-    "salesDate": "09/11/2019 06:04:43",
-    "storeLocation": "00d8ea6f-935c-2cca-9bbc-f56b5a091621",
+    ```JSON
+    {
+        "userId": "2c82e013-2166-47ba-b5d6-b427e814802a",
+        "programId": "4c25613a-a3c2-4ef3-8e02-9c335eb23204",
+        "followup": "False",
+        "rating": 5,
+        "userNotes": "Great Program"
+    }
+    ```
 
-}
-```
+2. Create a process(es) which is able to filter based on the total cost in each message, and accomplish the following tasks:
 
-Next, you will need to create a process(es) which is able to filter based on the total cost in each message, and accomplish the following tasks:
+    If the follow-up request is "true" create a JSON object save the JSON object with a unique name to the "for-followup" container within a Azure Storage account
+    
+    If the follow-up request is "false" create a JSON object save the JSON object with a unique name to the "feedback" container within a Azure Storage account
 
-    If the total cost is greater than or equal to $100:
-
-    retrieve the PDF file of the receipt using the receiptUrl value
-    base64 encode the PDF
-    create a JSON object which includes the receipt data, along with the base64 encoded version of the receipt
-    save the JSON object with a unique name to the "receipts-high-value" container within the provided Azure Storage account (accessible only from the virtual network)
     The format for the saved data should be as follows:
 
+    ```JSON
     {
-        "Store": "00d8ea6f-935c-2cca-9bbc-f56b5a091621",
-        "SalesNumber": "0c423398-3c7c-0682-7519-4701c445ed7a",
-        "TotalCost": 123.40,
-        "Items": 8,
-        "SalesDate": "09/11/2019 06:04:43",
-        "ReceiptImage":"V2VsY29tZSB0byBTZXJ2ZXJsZXNzIE9wZW5IYWNrIQ=="
+        "userId": "2c82e013-2166-47ba-b5d6-b427e814802a",
+        "programId": "4c25613a-a3c2-4ef3-8e02-9c335eb23204",
+        "followup": "True",
+        "rating": 3,
+        "userNotes": "Have some ideas"
     }
-
-    If the total cost is less than $100:
-
-    create a JSON object which includes the receipt data
-    save the JSON object with a unique name to the "receipts" container within the provided Azure Storage account (accessible only from the provided virtual network)
-    The format for the saved data should be as follows:
-
-    {
-        "Store": "00d8ea6f-935c-2cca-9bbc-f56b5a091621",
-        "SalesNumber": "0c423398-3c7c-0682-7519-4701c445ed7a",
-        "TotalCost": 6.58,
-        "Items": 1,
-        "SalesDate": "09/02/2019 10:36:17"
-    }
+    ```
 
 # Reference
 
-~
-https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-to-event-grid-integration-example
+[Tutorial: Respond to Azure Service Bus events received via Azure Event Grid by using Azure Logic Apps](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-to-event-grid-integration-example)
 
-https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-to-event-grid-integration-function
-
+[Tutorial: Respond to Azure Service Bus events received via Azure Event Grid by using Azure Functions](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-to-event-grid-integration-function)

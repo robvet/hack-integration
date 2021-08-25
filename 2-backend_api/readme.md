@@ -35,7 +35,7 @@ Azure Functions lets you connect Azure services and other resources to functions
         * Add a property called `timestamp` with the current UTC date time
         * Validate that the `rating` field is an integer from 0 to 5
         * Validate the `followup` is true/false
-        * Use a data service to store the ratings information to the backend
+        * Use a data service to store the feedback information to the backend
         * Return the entire review JSON payload with the newly created `id` and `timestamp`
 
     * **Output**:
@@ -58,7 +58,7 @@ Azure Functions lets you connect Azure services and other resources to functions
     * **Input**: The Feedback `feedbackId` as a query string or route parameter
 
     * **Requirements**
-        * Get the rating from your database and return the entire JSON payload for the review identified by the id
+        * Get the feedback from your database and return the entire JSON payload for the review identified by the id
         * Additional route parameters or query string values may be used if necessary.
 
     * **Output**:
@@ -70,7 +70,7 @@ Azure Functions lets you connect Azure services and other resources to functions
         "timestamp": "2018-05-21 21:27:47Z",
         "followup": "True",
         "rating": 5,
-        "userNotes": "Bad experiance"
+        "userNotes": "Great experiance"
         }
         ```
 
@@ -81,7 +81,7 @@ Azure Functions lets you connect Azure services and other resources to functions
     * **Input**: The `userId` as a query string or route parameter
 
     * **Requirements**
-        * Get the ratings for the user from your database and return the entire JSON payload for the reviews for the user identified by the id.
+        * Get the feedback for a single user from your database and return the entire JSON payload for the reviews for the user identified by the id.
         * Additional route parameters or query string values may be used if necessary.
         
     * **Output**:
@@ -102,8 +102,8 @@ Azure Functions lets you connect Azure services and other resources to functions
             "programId": "e4e7068e-500e-4a00-8be4-630d4594735b",
             "timestamp": "2018-05-20 09:02:30Z",
             "followup": "True",
-            "rating": 4,
-            "userNotes": "Needs some work"
+            "rating": 2,
+            "userNotes": "let's talk about some new ideas"
         }
         ]
         ```
