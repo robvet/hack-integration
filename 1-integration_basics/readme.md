@@ -104,15 +104,15 @@ public static class MyHttpTrigger
     {
         log.LogInformation("C# HTTP trigger function processed a request.");
 
-        // NOTE: Can also modify function to retrieve product ID from query string.
-        string productId = req.Query["productId"];
+        // NOTE: Can also modify function to retrieve program ID from query string.
+        string programId = req.Query["programId"];
 
         string requestBody = new StreamReader(req.Body).ReadToEnd();
         dynamic data = JsonConvert.DeserializeObject(requestBody);
-        productId = productId ?? data?.productId;
+        programId = programId ?? data?.programId;
 
-        return productId != null
-            ? (ActionResult)new OkObjectResult($"The program name for your program id {productId} is Program A")
+        return programId != null
+            ? (ActionResult)new OkObjectResult($"The program name for your program id {programId} is Program A")
             : new BadRequestObjectResult("Please provide a programId on the query string!");
     }
 }
