@@ -84,7 +84,7 @@ module.exports = async function (context, req) {
     const programId = (req.query.programId || (req.body && req.body.programId));
     const responseMessage = programId
         ? "The program name for your program id {" + programId + "} is Program A."
-        : "Pass a programId in the query string or in the request body for a personalized response.";
+        : "Please provide a programId on the query string!";
 
     context.res = {
         // status: 200, /* Defaults to 200 */
