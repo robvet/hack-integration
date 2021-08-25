@@ -73,3 +73,47 @@ The Functions and Logic Apps created in this module will be leveraged throughout
 
 * [Logic Apps Call, trigger, or nest workflows with HTTP endpoints in Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint)
 
+## Example Code
+
+### JavaScript
+
+```javascript
+module.exports = async function (context, req) {
+    context.log('JavaScript HTTP trigger function processed a request.');
+
+    const programId = (req.query.programId || (req.body && req.body.programId));
+    const responseMessage = programId
+        ? "The program name for your program id {" + programId + "} is Program A."
+        : "Pass a programId in the query string or in the request body for a personalized response.";
+
+    context.res = {
+        // status: 200, /* Defaults to 200 */
+        body: responseMessage
+    };
+}
+```
+
+
+### C#
+
+```C#
+public static class MyHttpTrigger
+{
+    [FunctionName("MyHttpTrigger")]
+    public static IActionResult Run([HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)]HttpRequest req, ILogger log)
+    {
+        log.LogInformation("C# HTTP trigger function processed a request.");
+
+        // NOTE: Can also modify function to retrieve product ID from query string.
+        string productId = req.Query["productId"];
+
+        string requestBody = new StreamReader(req.Body).ReadToEnd();
+        dynamic data = JsonConvert.DeserializeObject(requestBody);
+        productId = productId ?? data?.productId;
+
+        return productId != null
+            ? (ActionResult)new OkObjectResult($"The program name for your program id {productId} is Program A")
+            : new BadRequestObjectResult("Please provide a programId on the query string!");
+    }
+}
+```
