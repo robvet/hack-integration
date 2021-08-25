@@ -27,9 +27,9 @@ Microsoft Azure Service Bus is a fully managed enterprise message broker with me
 
 2. Create a process(es) which is able to filter based on the total cost in each message, and accomplish the following tasks:
 
-    If the follow-up request is "true" create a JSON object save the JSON object with a unique name to the "for-followup" container within a Azure Storage account
+    If the follow-up request is "true" create a JSON object save the JSON object with a unique name to the "for-followup" container within an Azure Storage account
     
-    If the follow-up request is "false" create a JSON object save the JSON object with a unique name to the "feedback" container within a Azure Storage account
+    If the follow-up request is "false" create a JSON object save the JSON object with a unique name to the "feedback" container within an Azure Storage account
 
     The format for the saved data should be as follows:
 
