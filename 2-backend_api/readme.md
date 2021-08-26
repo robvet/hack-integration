@@ -125,3 +125,104 @@ Azure Functions lets you connect Azure services and other resources to functions
 * [Getting started with JSON features in Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-json-features)
 
 * [Azure Table storage overview](https://docs.microsoft.com/azure/cosmos-db/table-storage-overview)
+
+## Example Code
+
+### Testing the API
+
+Using PowerShell to test the API locally.
+
+```PowerShell
+$uri =  'http://localhost:7071/api/Function1'
+$qp = @{programId='1cd8cf30-e821-44cf-b3ac-44cf6b4f2b19'}
+Invoke-WebRequest -Uri $uri -Method GET -Body $qp
+
+
+$uri =  'http://localhost:7071/api/SubmitFeedback'
+$qp='{
+"userId": "2c82e013-2166-47ba-b5d6-b427e814802a",
+"programId": "1cd8cf30-e821-44cf-b3ac-44cf6b4f2b19",
+"followup": "False",
+"rating": 5,
+"userNotes": "Great Program"
+}'
+Invoke-WebRequest -Uri $uri -Method POST -Body $qp
+```
+
+### C# SubmitFeedback API Example
+
+```CSharp SubmitFeedback API
+public static class SubmitFeedback
+    {
+        private static readonly HttpClient _httpClient = new HttpClient();
+
+        [FunctionName("SubmitFeedback")]
+        public static async Task<IActionResult> Run(
+            [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequest req,
+            [CosmosDB(
+                databaseName: "ProgramData",
+                collectionName: "Feedback",
+                ConnectionStringSetting = "FEEDBACK_DB_CONNECTION")]
+            IAsyncCollector<FeedbackModel> feedbackOutput,
+            ILogger log)
+        {
+            log.LogInformation("C# HTTP trigger function processed a request.");
+
+            string _userid = null; string _programid = null;
+            var requestBody = await new StreamReader(req.Body).ReadToEndAsync();
+            dynamic data = JsonConvert.DeserializeObject(requestBody);
+
+            _userid = _userid ?? data?.userId;
+            _programid = _programid ?? data?.programId;
+            log.LogInformation("userId: " + _userid);
+            log.LogInformation("programId:" + _programid);
+
+            var result = await _httpClient.GetAsync($"https://hack.azure-api.net/api/GetUser/?userid={_userid}");
+            var resultContent = await result.Content.ReadAsStringAsync();
+            log.LogInformation("GetUserAPI result :" + result);
+            log.LogInformation("GetUserAPI content:" + resultContent);
+
+            if (result.IsSuccessStatusCode)
+            {
+                var resultProgram = await _httpClient.GetAsync($"https://hack.azure-api.net/api/GetProgram?programId={_programid}");
+                var resultProgramContent = await result.Content.ReadAsStringAsync();
+                log.LogInformation("GetProgram result:" + resultProgram);
+                log.LogInformation("GetProgram content:" + resultProgramContent);
+
+                if (resultProgram.IsSuccessStatusCode)
+                {
+                    var feedbackGuid = Guid.NewGuid().ToString();
+                    var _programFeedback = new FeedbackModel
+                    {
+                        id = feedbackGuid,
+                        userId = _userid,
+                        programId = _programid,
+                        followup = data?.followup,
+                        rating = data?.rating,
+                        userNotes = data?.userNotes,
+                        timeStamp = DateTime.Now.ToString()
+                    };
+
+                    await feedbackOutput.AddAsync(_programFeedback);
+                    return new OkObjectResult(feedbackGuid);
+                }
+            }
+
+            return new BadRequestResult();
+        }
+    }
+```
+
+```CSharp FeedbackModel
+    public class FeedbackModel
+    {
+        public string id { get; set; }
+        public string userId { get; set; }
+        public string programId { get; set; }
+        public DateTime timestamp { get; set; }
+        public string timeStamp { get; internal set; }
+        public string followup { get; set; }
+        public int rating { get; set; }
+        public string userNotes { get; set; }
+    }
+```

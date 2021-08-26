@@ -77,7 +77,7 @@ The Functions and Logic Apps created in this module will be leveraged throughout
 
 ### JavaScript
 
-```javascript
+```JavaScript
 module.exports = async function (context, req) {
     context.log('JavaScript HTTP trigger function processed a request.');
 
@@ -93,10 +93,9 @@ module.exports = async function (context, req) {
 }
 ```
 
-
 ### C#
 
-```C#
+```CSharp
 public static class MyHttpTrigger
 {
     [FunctionName("MyHttpTrigger")]
