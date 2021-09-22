@@ -93,9 +93,7 @@ module.exports = async function (context, req) {
 }
 ```
 
-### C# Function
-
-Request Body
+### C# Function with Request Body
 
 ```CSharp
 public static class GetProgramBody {
@@ -120,7 +118,7 @@ public static class GetProgramBody {
 }
 ```
 
-Query Parameter
+### C# Function with Query Parameter
 
 ```CSharp
 public static class GetProgramQuery {
@@ -148,8 +146,7 @@ public static class GetProgramQuery {
 }
 ```
 
-
-### Logic App
+### Logic App for Query Parameter Function
 
 ```JSON
 {
@@ -194,6 +191,65 @@ public static class GetProgramQuery {
                         "properties": {
                             "programId": {
                                 "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    }
+                },
+                "kind": "Http",
+                "type": "Request"
+            }
+        }
+    },
+    "parameters": {}
+}
+```
+
+### Logic App for Request Body Function
+
+```JSON
+{
+    "definition": {
+        "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+        "actions": {
+            "GetProgramBody": {
+                "inputs": {
+                    "body": {
+                        "programId": "@triggerBody()?['programId']"
+                    },
+                    "function": {
+                        "id": "/subscriptions/0aef800c-dacc-40c8-aad0-47207100f1da/resourceGroups/hack-usw3-api/providers/Microsoft.Web/sites/hack-feedback-api/functions/GetProgramBody"
+                    },
+                    "method": "POST"
+                },
+                "runAfter": {},
+                "type": "Function"
+            },
+            "Response": {
+                "inputs": {
+                    "body": "@body('GetProgramBody')",
+                    "statusCode": 200
+                },
+                "kind": "Http",
+                "runAfter": {
+                    "GetProgramBody": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "Response"
+            }
+        },
+        "contentVersion": "1.0.0.0",
+        "outputs": {},
+        "parameters": {},
+        "triggers": {
+            "manual": {
+                "inputs": {
+                    "method": "POST",
+                    "schema": {
+                        "properties": {
+                            "programId": {
+                                "type": "integer"
                             }
                         },
                         "type": "object"
