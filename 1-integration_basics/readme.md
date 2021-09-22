@@ -75,7 +75,7 @@ The Functions and Logic Apps created in this module will be leveraged throughout
 
 ## Example Code
 
-### JavaScript
+### JavaScript Function
 
 ```JavaScript
 module.exports = async function (context, req) {
@@ -93,26 +93,117 @@ module.exports = async function (context, req) {
 }
 ```
 
-### C#
+### C# Function
+
+Request Body
 
 ```CSharp
-public static class MyHttpTrigger
-{
-    [FunctionName("MyHttpTrigger")]
-    public static IActionResult Run([HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)]HttpRequest req, ILogger log)
-    {
+public static class GetProgramBody {
+    [FunctionName("GetProgramBody")]
+    public static async Task<IActionResult> Run(
+        [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
+        ILogger log) {
         log.LogInformation("C# HTTP trigger function processed a request.");
 
-        // NOTE: Can also modify function to retrieve program ID from query string.
-        string programId = req.Query["programId"];
+        string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
+        dynamic data = JsonConvert.DeserializeObject(requestBody);
+        string programId = data?.programId;
+        log.LogInformation("programId value: " + programId);
 
-        string requestBody = new StreamReader(req.Body).ReadToEnd();
+        string responseMessage = string.IsNullOrEmpty(programId)
+            ? "This HTTP triggered function executed successfully. Pass a programId in the query string!"
+            : $"The program, {programId} is program A.";
+        log.LogInformation("responseMessage: " + responseMessage);
+
+        return new OkObjectResult(responseMessage);
+    }
+}
+```
+
+Query Parameter
+
+```CSharp
+public static class GetProgramQuery {
+    [FunctionName("GetProgramQuery")]
+    public static async Task<IActionResult> Run(
+        [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
+        ILogger log) {
+        log.LogInformation("C# HTTP trigger function processed a request.");
+
+        string programId = req.Query["programId"];
+        log.LogInformation("programId query: " + programId);
+
+        string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
         dynamic data = JsonConvert.DeserializeObject(requestBody);
         programId = programId ?? data?.programId;
+        log.LogInformation("programId value: " + programId);
 
-        return programId != null
-            ? (ActionResult)new OkObjectResult($"The program name for your program id {programId} is Program A")
-            : new BadRequestObjectResult("Please provide a programId on the query string!");
+        string responseMessage = string.IsNullOrEmpty(programId)
+            ? "This HTTP triggered function executed successfully. Pass a programId in the query string!"
+            : $"The program, {programId} is program A.";
+        log.LogInformation("responseMessage: " + responseMessage);
+
+        return new OkObjectResult(responseMessage);
     }
+}
+```
+
+
+### Logic App
+
+```JSON
+{
+    "definition": {
+        "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+        "actions": {
+            "Function1": {
+                "inputs": {
+                    "function": {
+                        "id": "/subscriptions/0aef800c-dacc-40c8-aad0-47207100f1da/resourceGroups/hack-usw3-api/providers/Microsoft.Web/sites/hack-feedback-api/functions/Function1"
+                    },
+                    "method": "GET",
+                    "queries": {
+                        "programId": "@triggerBody()?['programId']"
+                    }
+                },
+                "runAfter": {},
+                "type": "Function"
+            },
+            "Response": {
+                "inputs": {
+                    "body": "@body('Function1')",
+                    "statusCode": 200
+                },
+                "kind": "Http",
+                "runAfter": {
+                    "Function1": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "Response"
+            }
+        },
+        "contentVersion": "1.0.0.0",
+        "outputs": {},
+        "parameters": {},
+        "triggers": {
+            "manual": {
+                "inputs": {
+                    "method": "POST",
+                    "schema": {
+                        "properties": {
+                            "programId": {
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    }
+                },
+                "kind": "Http",
+                "type": "Request"
+            }
+        }
+    },
+    "parameters": {}
 }
 ```
