@@ -156,12 +156,12 @@ public static class GetProgramQuery {
     "definition": {
         "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
         "actions": {
-            "Function1": {
+            "GetProgramQuery": {
                 "inputs": {
                     "function": {
-                        "id": "/subscriptions/0aef800c-dacc-40c8-aad0-47207100f1da/resourceGroups/hack-usw3-api/providers/Microsoft.Web/sites/hack-feedback-api/functions/Function1"
+                        "id": "/subscriptions/0aef800c-dacc-40c8-aad0-47207100f1da/resourceGroups/hack-usw3-api/providers/Microsoft.Web/sites/hack-feedback-api/functions/GetProgramQuery"
                     },
-                    "method": "GET",
+                    "method": "POST",
                     "queries": {
                         "programId": "@triggerBody()?['programId']"
                     }
@@ -171,12 +171,12 @@ public static class GetProgramQuery {
             },
             "Response": {
                 "inputs": {
-                    "body": "@body('Function1')",
+                    "body": "@body('GetProgramQuery')",
                     "statusCode": 200
                 },
                 "kind": "Http",
                 "runAfter": {
-                    "Function1": [
+                    "GetProgramQuery": [
                         "Succeeded"
                     ]
                 },
