@@ -109,11 +109,12 @@ public static class GetProgramBody {
         log.LogInformation("programId value: " + programId);
 
         string responseMessage = string.IsNullOrEmpty(programId)
-            ? "This HTTP triggered function executed successfully. Pass a programId in the query string!"
+            ? "This HTTP triggered function executed successfully. Pass a programId in message body!"
             : $"The program, {programId} is program A.";
         log.LogInformation("responseMessage: " + responseMessage);
 
         return new OkObjectResult(responseMessage);
+
     }
 }
 ```
