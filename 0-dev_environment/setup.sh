@@ -45,17 +45,17 @@ echo 'export DOTNET_CLI_TELEMETRY_OPTOUT=1' >> ~/.bashrc
 cat ~/.bashrc
 . ~/.profile
 
-# nodejs 14.17.5
+# nodejs 14.18.0
 # https://github.com/nodejs/help/wiki/Installation
-echo "Install Nodejs 14.17.5"
+echo "Install Nodejs 14.18.0"
 read -p "Press enter to continue"
-wget https://nodejs.org/dist/v14.17.5/node-v14.17.5-linux-x64.tar.xz
-VERSION=v14.17.5
+wget https://nodejs.org/dist/v14.18.0/node-v14.18.0-linux-arm64.tar.xz
+VERSION=v14.18.0
 DISTRO=linux-x64
 sudo mkdir -p /usr/local/lib/nodejs
 ll /usr/local/lib/nodejs
 sudo tar -xJvf node-$VERSION-$DISTRO.tar.xz -C /usr/local/lib/nodejs
-echo 'VERSION=v14.17.5' >> ~/.bashrc
+echo 'VERSION=v14.18.0' >> ~/.bashrc
 echo 'DISTRO=linux-x64' >> ~/.bashrc
 echo 'export PATH=/usr/local/lib/nodejs/node-$VERSION-$DISTRO/bin:$PATH' >> ~/.bashrc
 cat ~/.bashrc
