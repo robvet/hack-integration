@@ -25,29 +25,40 @@ If you don't have an Azure subscription, create a [free account](https://azure
 
 
 ## Windows 10 with Ubuntu WSL
-    - Visual Studio (C#)
-        - Azure Development Workload
-        - .NET cross platform development
-    - VS Code (JavaScript, Python)
-        - Azure Account extension
-        - Azure logic app (standard) extension
-        - Azure Functions extension
-        - WSL extension
-    - WSL Ubuntu 20.04
-        - Azure CLI
-        - Azure Functions Core Tools 3
-        - .NET Core SDK 5
-        - Nodejs 14.18.0
+* Visual Studio (C#)
+    * Azure Development Workload
+    * .NET cross platform development
+* Visual Studio Code [Download](https://code.visualstudio.com/Download)
+    * Azure Account extension
+    * Azure logic app (standard) extension
+    * Azure Functions extension
+    * WSL extension
+* Azure Functions Core Tools 3 for Windows [Download](https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local)
+* Azure CLI [Download](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli)
+* .NET 3.1 for Windows [Download](https://dotnet.microsoft.com/download/dotnet/3.1)
+* .NET 5.0 for Windows [Download](https://dotnet.microsoft.com/download/dotnet/5.0)
+* WSL Ubuntu 20.04 (Windows Store)
+    * NOTE: Installation Script Below
+    * Azure CLI for Linux
+    * Azure Functions Core Tools 3 for Linux
+    * .NET Core SDK 3 & 5 for Linux
+    * Nodejs 14.18.0
+
+## WIndows REST Clients/Tools (optional)
+* [Nightingale](https://www.microsoft.com/en-us/p/nightingale-rest-client/9n2t6f9f5zdn?activetab=pivot:overviewtab)
+* [Postman](https://www.postman.com)
+* [Test web APIs with the HttpRepl](https://docs.microsoft.com/en-us/aspnet/core/web-api/http-repl/?view=aspnetcore-5.0&tabs=windows)
+* [PowerShell Invoke-RestMethod](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/invoke-restmethod)
 
 ## macOS
-    - Azure CLI
-    - Azure Functions Core Tools 3
-    - .NET Core SDK
-    - VS Code (JavaScript, Python)
-        - Azure Account extension
-        - Azure logic app (standard) extension
-        - Azure Functions extension
-        - WSL extension
+* Azure CLI
+* Azure Functions Core Tools 3
+* .NET Core SDK
+* VS Code (JavaScript, Python)
+    * Azure Account extension
+    * Azure logic app (standard) extension
+    * Azure Functions extension
+    * WSL extension
 
 
 ## Ubuntu 20.04 Install Reference
