@@ -22,7 +22,7 @@ Azure Functions lets you connect Azure services and other resources to functions
         ```JSON
         {
         "userId": "2c82e013-2166-47ba-b5d6-b427e814802a",
-        "programId": "4c25613a-a3c2-4ef3-8e02-9c335eb23204",
+        "programId": "1cd8cf30-e821-44cf-b3ac-44cf6b4f2b19",
         "followup": "False",
         "rating": 5,
         "userNotes": "Great Program"
@@ -43,7 +43,7 @@ Azure Functions lets you connect Azure services and other resources to functions
         {
         "id": "79c2779e-dd2e-43e8-803d-ecbebed8972c",
         "userId": "2c82e013-2166-47ba-b5d6-b427e814802a",
-        "programId": "4c25613a-a3c2-4ef3-8e02-9c335eb23204",
+        "programId": "1cd8cf30-e821-44cf-b3ac-44cf6b4f2b19",
         "timestamp": "2018-05-21 21:27:47Z",
         "followup": "False",
         "rating": 5,
@@ -66,7 +66,7 @@ Azure Functions lets you connect Azure services and other resources to functions
         {
         "id": "79c2779e-dd2e-43e8-803d-ecbebed8972c",
         "userId": "2c82e013-2166-47ba-b5d6-b427e814802a",
-        "programId": "4c25613a-a3c2-4ef3-8e02-9c335eb23204",
+        "programId": "1cd8cf30-e821-44cf-b3ac-44cf6b4f2b19",
         "timestamp": "2018-05-21 21:27:47Z",
         "followup": "True",
         "rating": 5,
@@ -99,7 +99,7 @@ Azure Functions lets you connect Azure services and other resources to functions
         {
             "id": "8947f7cc-6f4c-49ed-a7aa-62892eac8f31",
             "userId": "2c82e013-2166-47ba-b5d6-b427e814802a",
-            "programId": "e4e7068e-500e-4a00-8be4-630d4594735b",
+            "programId": "9f180777-f850-42b7-8ef7-0ff38ca90336",
             "timestamp": "2018-05-20 09:02:30Z",
             "followup": "True",
             "rating": 2,
@@ -133,20 +133,28 @@ Azure Functions lets you connect Azure services and other resources to functions
 Using PowerShell to test the API locally.
 
 ```PowerShell
-$uri =  'http://localhost:7071/api/Function1'
-$qp = @{programId='1cd8cf30-e821-44cf-b3ac-44cf6b4f2b19'}
-Invoke-WebRequest -Uri $uri -Method GET -Body $qp
+# GetProgramQuery local
+$uri =  'http://localhost:7071/api/GetProgramQuery'
+$body = '{"programId" : "1cd8cf30-e821-44cf-b3ac-44cf6b4f2b19"}'
+# Invoke-WebRequest -Uri $uri -Method POST -Body $body
+Invoke-WebRequest -Uri $uri -Method POST -Body $body | select Content
 
+# GetProgramBody local
+$uri =  'http://localhost:7071/api/GetProgramBody'
+$body = '{"programId" : "1cd8cf30-e821-44cf-b3ac-44cf6b4f2b19"}'
+# Invoke-WebRequest -Uri $uri -Method POST -Body $body
+Invoke-WebRequest -Uri $uri -Method POST -Body $body | select Content
 
+# SubmitFeedback local
 $uri =  'http://localhost:7071/api/SubmitFeedback'
-$qp='{
-"userId": "2c82e013-2166-47ba-b5d6-b427e814802a",
-"programId": "1cd8cf30-e821-44cf-b3ac-44cf6b4f2b19",
-"followup": "False",
-"rating": 5,
-"userNotes": "Great Program"
+$body='{
+"userId" : "2c82e013-2166-47ba-b5d6-b427e814802a",
+"programId" : "1cd8cf30-e821-44cf-b3ac-44cf6b4f2b19",
+"followup" : "False",
+"rating" : 5,
+"userNotes" : "Great Program"
 }'
-Invoke-WebRequest -Uri $uri -Method POST -Body $qp
+Invoke-WebRequest -Uri $uri -Method POST -Body $body
 ```
 
 ### C# SubmitFeedback API Example
