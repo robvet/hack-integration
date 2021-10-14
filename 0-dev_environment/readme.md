@@ -23,26 +23,27 @@ If you don't have an Azure subscription, create a [free account](https://azure
     * Service Bus
     * Event Grid
 
-
 ## Windows 10 with Ubuntu WSL
 * Visual Studio (C#)
     * Azure Development Workload
     * .NET cross platform development
+    * Azure LogicApps Tools for VS2019 [Download](https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsForVS2019)
 * Visual Studio Code [Download](https://code.visualstudio.com/Download)
     * Azure Account extension
     * Azure logic app (standard) extension
+    * Azure logic app (consumption) extension
     * Azure Functions extension
-    * WSL extension
+    * Windows Subsystem for Linux (WSL) extension
 * Azure Functions Core Tools 3 for Windows [Download](https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local)
 * Azure CLI [Download](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli)
 * .NET 3.1 for Windows [Download](https://dotnet.microsoft.com/download/dotnet/3.1)
 * .NET 5.0 for Windows [Download](https://dotnet.microsoft.com/download/dotnet/5.0)
-* WSL Ubuntu 20.04 (Windows Store)
+* Ubuntu for WSL (From the Microsoft Store)
     * NOTE: Installation Script Below
     * Azure CLI for Linux
     * Azure Functions Core Tools 3 for Linux
     * .NET Core SDK 3 & 5 for Linux
-    * Nodejs 14.18.0
+    * Nodejs 14.18.1
 
 ## WIndows REST Clients/Tools (optional)
 * [Nightingale](https://www.microsoft.com/en-us/p/nightingale-rest-client/9n2t6f9f5zdn?activetab=pivot:overviewtab)
