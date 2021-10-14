@@ -1,5 +1,5 @@
 # Overview
-Integration with Service Bus and Event Grid
+Integration with Service Bus
 
 Microsoft Azure Service Bus is a fully managed enterprise message broker with message queues and publish-subscribe topics. Service Bus is used to decouple applications and services from each other, providing the following benefits:
 
@@ -7,13 +7,18 @@ Microsoft Azure Service Bus is a fully managed enterprise message broker with me
  * Safely routing and transferring data and control across service and application boundaries
  * Coordinating transactional work that requires a high-degree of reliability
 
- Azure Event Grid allows you to easily build applications with event-based architectures. First, select the Azure resource you would like to subscribe to, and then give the event handler or WebHook endpoint to send the event to. Event Grid has built-in support for events coming from Azure services, like storage blobs and resource groups. Event Grid also has support for your own events, using custom topics.
 
- ![Event Sources](https://docs.microsoft.com/en-us/azure/event-grid/media/overview/functional-model-big.png)
+Comparison of Azure Messaging Services
+---
+| Service	| Purpose | Type  | When to use |
+|-----------|---------|-------|-------------|
+| Event Grid | Reactive programming | Event distribution (discrete) | React to status changes |
+| Event Hubs | Big data pipeline | Event streaming (series) | Telemetry and distributed data streaming |
+| Service Bus | High-value enterprise messaging | Message | Order processing and financial transactions |
 
 # Challenges
 
-1. Modify the Azure Function to send the specified information to a pub/sub messaging system. Using the feedback data sent, create a new JSON document with a structure like the example below that will be sent to your pub/sub messaging system.
+1. Modify the Azure Function to send (pub) the specified information to a pub/sub messaging system. Using the feedback data sent, create a new JSON document with a structure like the example below that will be sent to your pub/sub messaging system.
 
     ```JSON
     {
@@ -25,7 +30,7 @@ Microsoft Azure Service Bus is a fully managed enterprise message broker with me
     }
     ```
 
-2. Create a process(es) which is able to filter based on the total cost in each message, and accomplish the following tasks:
+2. Create a process(es) which is able to receive (sub) the message and filter based on the total cost in each message, and accomplish the following tasks:
 
     If the follow-up request is "true" create a JSON object save the JSON object with a unique name to the "for-followup" container within an Azure Storage account
     
@@ -44,6 +49,14 @@ Microsoft Azure Service Bus is a fully managed enterprise message broker with me
     ```
 
 # Reference
+
+[Get started with Azure Service Bus queues (.NET)](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-dotnet-get-started-with-queues)
+
+[Send messages to and receive messages from Azure Service Bus queues (JavaScript)](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues)
+
+[Send messages to and receive messages from Azure Service Bus queues (Python)](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-python-how-to-use-queues)
+
+[Send messages to and receive messages from Azure Service Bus queues (Java)](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-java-how-to-use-queues)
 
 [Tutorial: Respond to Azure Service Bus events received via Azure Event Grid by using Azure Logic Apps](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-to-event-grid-integration-example)
 
